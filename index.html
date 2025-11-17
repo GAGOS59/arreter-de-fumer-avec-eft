@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation EFT - Arrêter de fumer avec l'EFT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #FF6B4A 0%, #4A90E2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300"><path d="M0,100 Q300,150 600,100 T1200,100 L1200,0 L0,0 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        .logo {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        header p {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tagline {
+            font-style: italic;
+            opacity: 0.95;
+            font-size: 1.1em;
+        }
+        
+        /* Bannière visuelle */
+        .hero-banner {
+            background: linear-gradient(to right, rgba(74, 144, 226, 0.85), rgba(255, 107, 74, 0.85)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:rgb(74,144,226);stop-opacity:0.3" /><stop offset="100%" style="stop-color:rgb(255,107,74);stop-opacity:0.3" /></linearGradient></defs><circle cx="200" cy="200" r="150" fill="url(%23grad1)"/><circle cx="600" cy="150" r="100" fill="rgba(255,255,255,0.1)"/><circle cx="900" cy="250" r="120" fill="rgba(255,255,255,0.15)"/><path d="M0,300 Q300,250 600,300 T1200,300 L1200,400 L0,400 Z" fill="rgba(255,255,255,0.2)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-banner h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+        }
+        
+        .hero-banner p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: #FF6B4A;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Info cards */
+        .info-section {
+            padding: 60px 20px;
+            background-color: white;
+        }
+        
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #FF6B4A;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .info-card h3 {
+            color: #FF6B4A;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .info-card p {
+            color: #555;
+            font-size: 1.05em;
+        }
+        
+        /* Programme section */
+        .programme-section {
+            padding: 60px 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .programme-section h2 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .programme-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #FF6B4A, #4A90E2);
+            border-radius: 2px;
+        }
+        
+        .accordion {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .accordion-item {
+            background-color: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .accordion-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .accordion-header {
+            background: linear-gradient(135deg, #FF6B4A 0%, #FF8A6F 100%);
+            color: white;
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background 0.3s ease;
+        }
+        
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #036FAC 0%, #FF6B4A 100%);
+        }
+        
+        .accordion-header::after {
+            content: '+';
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+        
+        .accordion-header.active::after {
+            content: '−';
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: #fff;
+        }
+        
+        .accordion-content.active {
+            max-height: 500px;
+        }
+        
+        .accordion-body {
+            padding: 25px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        /* Supervision */
+        .supervision-item {
+            background: linear-gradient(135deg, #4A90E2 0%, #6BA5E8 100%);
+        }
+        
+        .supervision-item:hover {
+            background: linear-gradient(135deg, #6BA5E8 0%, #4A90E2 100%);
+        }
+        
+        /* Downloads section */
+        .downloads-section {
+            padding: 60px 20px;
+            background-color: white;
+            text-align: center;
+        }
+        
+        .downloads-section h2 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 40px;
+        }
+        
+        .download-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+            color: white;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        }
+        
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #014579;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        footer h3 {
+            color: #FF6B4A;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+        
+        footer a {
+            color: #4A90E2;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: #FF6B4A;
+            text-decoration: underline;
+        }
+        
+        .footer-links {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            header p {
+                font-size: 1.1em;
+            }
+            
+            .hero-banner h2 {
+                font-size: 1.6em;
+            }
+            
+            .hero-banner p {
+                font-size: 1em;
+            }
+            
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .accordion-header {
+                font-size: 1em;
+                padding: 15px 20px;
+            }
+        }
+        
+        /* Accessibilité */
+        :focus {
+            outline: 3px solid #4A90E2;
+            outline-offset: 2px;
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 120'%3E%3Ctext x='200' y='60' font-family='Arial, sans-serif' font-size='36' font-weight='bold' fill='%23FFFFFF' text-anchor='middle' dominant-baseline='middle'%3EÉcole EFT France%3C/text%3E%3Ctext x='200' y='90' font-family='Arial, sans-serif' font-size='18' fill='%23FFFFFF' text-anchor='middle' dominant-baseline='middle'%3EGeneviève Gagos%3C/text%3E%3C/svg%3E" alt="École EFT France - Geneviève Gagos" class="logo">
+            <h1>L'EFT dans l'aide au sevrage du tabac</h1>
+            <p><strong>Formation 100% en ligne • 7 heures</strong></p>
+            <p class="tagline">Une méthode douce et progressive pour se libérer du tabac</p>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+        <div class="container">
+            <h2>Libérez-vous du tabac avec l'EFT</h2>
+            <p>Découvrez une approche émotionnelle bienveillante pour réduire le craving, gérer vos émotions et construire votre plan personnel d'arrêt progressif.</p>
+            <a href="#programme" class="cta-button">Découvrir le programme</a>
+        </div>
+    </div>
+
+    <!-- Info Cards -->
+    <section class="info-section">
+        <div class="container">
+            <h2 style="text-align: center; color: #2c3e50; font-size: 2em; margin-bottom: 20px;">Informations pratiques</h2>
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>📅 Dates</h3>
+                    <p><strong>Début :</strong> 01/01/2026<br>
+                    Progression sur 3 à 4 semaines<br>
+                    Accès flexible 24h/24</p>
+                </div>
+                <div class="info-card">
+                    <h3>💻 Modalités</h3>
+                    <p><strong>100% en ligne</strong><br>
+                    Modules e-learning asynchrones<br>
+                    2 supervisions collectives en visioconférence</p>
+                </div>
+                <div class="info-card">
+                    <h3>👩‍🏫 Formatrice</h3>
+                    <p><strong>Geneviève Gagos</strong><br>
+                    Fondatrice École EFT France<br>
+                    Certifiée Gary Craig • +20 ans d'expérience</p>
+                </div>
+                <div class="info-card">
+                    <h3>🎯 Public</h3>
+                    <p>Toute personne souhaitant arrêter de fumer<br>
+                    Professionnels de la relation d'aide<br>
+                    Motivation personnelle requise</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programme -->
+    <section class="programme-section" id="programme">
+        <div class="container">
+            <h2>Programme de la formation</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Module 1 – Introduction à l'EFT et au sevrage tabagique</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Découvrez les fondements de l'EFT et son application au sevrage du tabac. Ce module introductif pose les bases de votre parcours avec des vidéos pédagogiques et un quiz interactif pour valider vos acquis.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Module 2 – Comprendre ses déclencheurs</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Identifiez vos déclencheurs personnels de consommation tabagique grâce aux tests Fagerström et Horn. Auto-questionnaire approfondi pour mieux vous connaître et cibler vos besoins spécifiques.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Module 3 – Apprentissage de la séquence EFT de base</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Maîtrisez la séquence EFT fondamentale à travers une vidéo guidée détaillée et des exercices pratiques. Apprenez à réaliser les tapotements de manière autonome et efficace.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Module 4 – EFT appliquée aux émotions du sevrage</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Appliquez l'EFT aux émotions spécifiques du sevrage : craving, stress, irritabilité et peur de grossir. Techniques concrètes pour gérer chaque situation avec bienveillance.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Module 5 – Alternatives au geste de fumer</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Découvrez des alternatives pratiques au geste de fumer : micro-pauses, exercices de respiration, hydratation et auto-bienveillance. Construisez votre boîte à outils personnelle.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item supervision-item">
+                    <div class="accordion-header">
+                        <span>🎥 Supervision collective intermédiaire</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Session en visioconférence pour partager vos expériences, poser vos questions et bénéficier de l'accompagnement de Geneviève Gagos et du soutien du groupe.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Module 6 – Construction d'un plan personnel d'arrêt progressif</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Élaborez votre plan personnalisé d'arrêt progressif intégrant l'EFT. Définissez vos objectifs réalistes et construisez un parcours adapté à votre rythme et vos besoins.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Module 7 – Consolidation et valorisation des réussites</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Consolidez vos acquis et valorisez vos réussites partielles pour renforcer votre confiance. Auto-évaluation finale et attribution d'un badge de réussite.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item supervision-item">
+                    <div class="accordion-header">
+                        <span>🎥 Supervision collective de clôture</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Session finale en visioconférence pour célébrer vos progrès, partager vos réussites et recevoir les derniers conseils pour maintenir votre arrêt sur le long terme.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloads -->
+    <section class="downloads-section">
+        <div class="container">
+            <h2>Documents à télécharger</h2>
+            <a href="#" class="download-button" download>📄 Télécharger le programme complet (PDF)</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>Contact</h3>
+            <p><strong>Geneviève Gagos</strong></p>
+            <p>École EFT France</p>
+            <p>Email : <a href="mailto:contact@ecole-eft-france.fr">contact@ecole-eft-france.fr</a></p>
+            
+            <div class="footer-links">
+                <p><a href="https://www.ecole-eft-france.fr/inclusion-handicap" target="_blank" rel="noopener noreferrer">Politique d'inclusion et de gestion du handicap</a></p>
+                <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">Formation accessible aux personnes en situation de handicap • Supports conformes WCAG</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Accordion functionality
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const isActive = this.classList.contains('active');
+                
+                // Close all accordion items
+                accordionHeaders.forEach(h => {
+                    h.classList.remove('active');
+                    h.nextElementSibling.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    this.classList.add('active');
+                    content.classList.add('active');
+                }
+            });
+        });
+        
+        // Smooth scroll for CTA button
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#programme').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
